@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" width="520" height="520">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8e7c8"/>
+      <stop offset="1" stop-color="#e6b379"/>
+    </linearGradient>
+    <linearGradient id="cupGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ece0d2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Фон -->
+  <rect width="520" height="520" rx="40" fill="url(#bgGrad)"/>
+
+  <!-- Зёрна кофе (декор) -->
+  <g fill="#5d2e1b" opacity="0.28">
+    <ellipse cx="72" cy="96" rx="13" ry="17" transform="rotate(-32 72 96)"/>
+    <ellipse cx="452" cy="120" rx="12" ry="16" transform="rotate(24 452 120)"/>
+    <ellipse cx="98" cy="416" rx="12" ry="16" transform="rotate(18 98 416)"/>
+    <ellipse cx="430" cy="408" rx="13" ry="17" transform="rotate(-26 430 408)"/>
+    <ellipse cx="448" cy="236" rx="10" ry="14" transform="rotate(40 448 236)"/>
+    <ellipse cx="66" cy="230" rx="10" ry="14" transform="rotate(-40 66 230)"/>
+    <path d="M62 92 q9 4 14 -6" stroke="#5d2e1b" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M442 114 q-8 6 -4 14" stroke="#5d2e1b" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Стол -->
+  <rect x="14" y="400" width="492" height="106" rx="22" fill="#5d3a1f"/>
+  <rect x="14" y="400" width="492" height="26" rx="16" fill="#6e4626"/>
+
+  <!-- Тень под котом -->
+  <ellipse cx="260" cy="398" rx="150" ry="18" fill="#241409" opacity="0.25"/>
+
+  <!-- Тело кота -->
+  <ellipse cx="260" cy="330" rx="128" ry="118" fill="#7c5133"/>
+  <ellipse cx="260" cy="348" rx="82" ry="84" fill="#e9d8bf"/>
+
+  <!-- Полосатый хвост -->
+  <path d="M390 320 q70 -24 56 -88 q-4 -22 -30 -22" stroke="#7c5133" stroke-width="30" fill="none" stroke-linecap="round"/>
+  <circle cx="416" cy="210" r="19" fill="#e9d8bf"/>
+  <path d="M412 198 q14 4 22 -8" stroke="#7c5133" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+  <!-- Уши -->
+  <path d="M186 150 L168 84 L234 124 Z" fill="#7c5133"/>
+  <path d="M334 150 L352 84 L286 124 Z" fill="#7c5133"/>
+  <path d="M190 146 L178 104 L222 128 Z" fill="#e8a0a0"/>
+  <path d="M330 146 L342 104 L298 128 Z" fill="#e8a0a0"/>
+
+  <!-- Голова -->
+  <circle cx="260" cy="206" r="96" fill="#7c5133"/>
+
+  <!-- Полоски на лбу -->
+  <path d="M260 118 q-4 18 0 30" stroke="#5d2e1b" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M238 122 q-2 20 3 28" stroke="#5d2e1b" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M282 122 q2 20 -3 28" stroke="#5d2e1b" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+  <!-- Глаза -->
+  <circle cx="222" cy="204" r="17" fill="#fffaf2"/>
+  <circle cx="298" cy="204" r="17" fill="#fffaf2"/>
+  <circle cx="224" cy="208" r="8" fill="#2b1b12"/>
+  <circle cx="300" cy="208" r="8" fill="#2b1b12"/>
+  <circle cx="221" cy="205" r="3" fill="#ffffff"/>
+  <circle cx="297" cy="205" r="3" fill="#ffffff"/>
+
+  <!-- Нос и рот -->
+  <path d="M260 232 L252 241 L268 241 Z" fill="#4a2c1a"/>
+  <path d="M260 241 q-10 15 -24 8" stroke="#4a2c1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M260 241 q10 15 24 8" stroke="#4a2c1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Усы -->
+  <g stroke="#4a2c1a" stroke-width="3" stroke-linecap="round" opacity="0.55">
+    <path d="M196 233 L160 226"/>
+    <path d="M196 241 L156 242"/>
+    <path d="M324 233 L360 226"/>
+    <path d="M324 241 L364 242"/>
+  </g>
+
+  <!-- Румянец -->
+  <ellipse cx="208" cy="228" rx="15" ry="9" fill="#e8a0a0" opacity="0.75"/>
+  <ellipse cx="312" cy="228" rx="15" ry="9" fill="#e8a0a0" opacity="0.75"/>
+
+  <!-- Лапка, держащая чашку -->
+  <ellipse cx="278" cy="312" rx="46" ry="30" fill="#8a5a36"/>
+
+  <!-- Чашка кофе -->
+  <g transform="translate(246 276)">
+    <path d="M8 8 h52 q6 0 8 6 l12 74 q3 12 -8 18 h-76 q-11 -6 -8 -18 l12 -74 q2 -6 8 -6 z" fill="url(#cupGrad)" stroke="#d8c9b8" stroke-width="3"/>
+    <ellipse cx="38" cy="10" rx="40" ry="12" fill="#4a2c1a"/>
+    <ellipse cx="38" cy="8" rx="30" ry="8" fill="#6b4127"/>
+    <path d="M78 34 q16 2 14 18 q-2 14 -14 16" fill="none" stroke="#d8c9b8" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- Пар от кофе -->
+  <g stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.7">
+    <path d="M284 300 q8 -14 0 -24"/>
+    <path d="M306 292 q8 -14 0 -24"/>
+    <path d="M328 300 q8 -14 0 -24"/>
+  </g>
+
+  <!-- Вторая лапка рядом -->
+  <ellipse cx="330" cy="356" rx="30" ry="20" fill="#8a5a36"/>
+  <path d="M314 356 q8 10 18 4" stroke="#6b4127" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Звёздочки-блеск -->
+  <g fill="#fff6e0" opacity="0.9">
+    <path d="M150 92 l6 14 14 6 -14 6 -6 14 -6 -14 -14 -6 14 -6 z"/>
+    <path d="M392 300 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z"/>
+  </g>
+</svg>

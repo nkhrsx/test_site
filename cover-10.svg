@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <defs>
+    <linearGradient id="bg10" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <radialGradient id="planet10a" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#fca5a5"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </radialGradient>
+    <radialGradient id="planet10b" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </radialGradient>
+    <radialGradient id="planet10c" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#bbf7d0"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="300" fill="url(#bg10)"/>
+  <circle cx="30" cy="40" r="1.5" fill="#fff" opacity=".8"/>
+  <circle cx="70" cy="26" r="1.2" fill="#fff" opacity=".7"/>
+  <circle cx="110" cy="52" r="1.4" fill="#fff" opacity=".6"/>
+  <circle cx="170" cy="26" r="1.3" fill="#fff" opacity=".7"/>
+  <circle cx="24" cy="120" r="1.4" fill="#fff" opacity=".6"/>
+  <circle cx="176" cy="150" r="1.3" fill="#fff" opacity=".7"/>
+  <circle cx="50" cy="190" r="1.4" fill="#fff" opacity=".6"/>
+  <ellipse cx="100" cy="128" rx="82" ry="26" fill="none" stroke="rgba(148,163,184,.5)" stroke-width="1.2" stroke-dasharray="4 5" transform="rotate(-14 100 128)"/>
+  <circle cx="150" cy="96" r="17" fill="url(#planet10a)"/>
+  <circle cx="62" cy="130" r="12" fill="url(#planet10b)"/>
+  <circle cx="122" cy="166" r="9" fill="url(#planet10c)"/>
+  <!-- телескоп -->
+  <g fill="#0f172a">
+    <path d="M30 240 l10 -34 q2 -6 8 -6 l8 28 q-2 8 -10 12 z"/>
+    <path d="M30 240 l6 -10 h52 l-8 10 z"/>
+  </g>
+  <rect x="0" y="238" width="200" height="62" fill="rgba(2,6,23,.8)"/>
+  <rect y="238" width="200" height="3" fill="#38bdf8"/>
+  <text x="100" y="264" font-size="16" font-family="Georgia, serif" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">ЗАДАЧА ТРЁХ ТЕЛ</text>
+  <text x="100" y="285" font-size="11.5" font-family="Arial, sans-serif" fill="#bae6fd" text-anchor="middle">Лю Цысинь</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="100%" stop-color="#134e4a"/>
+    </linearGradient>
+    <radialGradient id="glow6" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(52,211,153,.25)"/>
+      <stop offset="100%" stop-color="rgba(52,211,153,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="300" fill="url(#bg6)"/>
+  <circle cx="100" cy="130" r="95" fill="url(#glow6)"/>
+  <circle cx="34" cy="44" r="1.5" fill="#a7f3d0" opacity=".8"/>
+  <circle cx="150" cy="60" r="1.4" fill="#a7f3d0" opacity=".7"/>
+  <circle cx="60" cy="92" r="1.2" fill="#a7f3d0" opacity=".6"/>
+  <circle cx="170" cy="120" r="1.4" fill="#a7f3d0" opacity=".7"/>
+  <!-- дракон, обвивающий диск -->
+  <circle cx="100" cy="130" r="52" fill="#022c22" stroke="#34d399" stroke-width="3"/>
+  <path d="M100 78 q-34 0 -34 28 q0 24 26 34 q22 8 14 30 q-10 22 6 34"
+        fill="none" stroke="#10b981" stroke-width="9" stroke-linecap="round"/>
+  <path d="M40 118 q-10 -8 -20 -2" stroke="#10b981" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M54 132 q-12 -4 -18 6" stroke="#10b981" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M66 106 q-6 -6 -14 -2" stroke="#34d399" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <g transform="translate(100 74)">
+    <path d="M0 0 q-7 10 -14 12 q12 6 14 -12 z" fill="#6ee7b7"/>
+    <path d="M0 0 q7 10 14 12 q-12 6 -14 -12 z" fill="#34d399"/>
+    <circle cx="0" cy="-6" r="2.4" fill="#fde047"/>
+  </g>
+  <rect x="0" y="238" width="200" height="62" fill="rgba(2,44,34,.85)"/>
+  <rect y="238" width="200" height="3" fill="#34d399"/>
+  <text x="100" y="262" font-size="13.5" font-family="Georgia, serif" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing=".3">ДЕВУШКА С ТАТУИРОВКОЙ</text>
+  <text x="100" y="280" font-size="13.5" font-family="Georgia, serif" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing=".3">ДРАКОНА</text>
+  <text x="100" y="292" font-size="11" font-family="Arial, sans-serif" fill="#a7f3d0" text-anchor="middle">Стиг Ларссон</text>
+</svg>

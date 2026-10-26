@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+    <radialGradient id="moon1" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="80%" stop-color="#fcd34d"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </radialGradient>
+    <radialGradient id="lamp1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(254,243,199,.85)"/>
+      <stop offset="100%" stop-color="rgba(254,243,199,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="300" fill="url(#bg1)"/>
+  <circle cx="150" cy="52" r="34" fill="url(#moon1)"/>
+  <circle cx="30" cy="40" r="1.6" fill="#fff" opacity=".8"/>
+  <circle cx="62" cy="22" r="1.2" fill="#fff" opacity=".7"/>
+  <circle cx="100" cy="58" r="1.4" fill="#fff" opacity=".6"/>
+  <circle cx="178" cy="108" r="1.2" fill="#fff" opacity=".7"/>
+  <circle cx="18" cy="110" r="1.5" fill="#fff" opacity=".6"/>
+  <polygon points="0,300 0,204 38,192 38,214 88,200 88,222 148,206 148,300" fill="#140f3a"/>
+  <polygon points="78,300 78,226 128,212 128,300" fill="#1c1550"/>
+  <rect x="0" y="272" width="200" height="28" fill="#140f3a"/>
+  <circle cx="70" cy="196" r="46" fill="url(#lamp1)"/>
+  <rect x="68" y="140" width="4" height="54" fill="#0f0c33"/>
+  <rect x="60" y="140" width="20" height="6" rx="2" fill="#fde68a"/>
+  <path d="M70 240 q-4 -28 4 -34 q14 -10 30 -6 q-2 10 -10 12 q-18 8 -24 28 z" fill="#0f0c33"/>
+  <rect x="0" y="238" width="200" height="62" fill="rgba(15,12,51,.78)"/>
+  <rect y="238" width="200" height="3" fill="#f59e0b"/>
+  <text x="100" y="265" font-size="18" font-family="Georgia, serif" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">ТЕНЬ ВЕТРА</text>
+  <text x="100" y="286" font-size="11.5" font-family="Arial, sans-serif" fill="#e9d5ff" text-anchor="middle">Карлос Руис Сафон</text>
+</svg>
