@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <defs>
+    <linearGradient id="bg15" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c0a09"/>
+      <stop offset="75%" stop-color="#292524"/>
+      <stop offset="100%" stop-color="#451a03"/>
+    </linearGradient>
+    <radialGradient id="gate15" cx="50%" cy="60%" r="55%">
+      <stop offset="0%" stop-color="rgba(253,224,71,.85)"/>
+      <stop offset="55%" stop-color="rgba(251,191,36,.3)"/>
+      <stop offset="100%" stop-color="rgba(251,191,36,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="300" fill="url(#bg15)"/>
+  <circle cx="38" cy="46" r="1.5" fill="#fed7aa" opacity=".7"/>
+  <circle cx="90" cy="30" r="1.3" fill="#fed7aa" opacity=".6"/>
+  <circle cx="160" cy="56" r="1.5" fill="#fed7aa" opacity=".7"/>
+  <circle cx="24" cy="120" r="1.3" fill="#fed7aa" opacity=".5"/>
+  <!-- эйфелева башня вдалеке -->
+  <polygon points="152,236 140,210 147,206 143,192 152,188 161,192 157,206 164,210" fill="#1c1917"/>
+  <!-- триумфальная арка -->
+  <path d="M30 236 h14 v-18 q12 -2 20 -6 q-10 -4 -16 -14 q10 8 22 10 q10 -4 24 -8 q14 6 22 8 q12 -2 24 10 q-6 10 -16 14 q8 4 20 6 v18 h14 v-44 q-6 -6 -10 -14 q-4 -10 -6 -22 q-10 -14 -22 -20 q-12 6 -22 20 q-2 14 -8 22 q-10 12 -22 14 q-12 -4 -22 -14 q-6 -10 -10 -22 q-12 -14 -22 -20 q-12 6 -22 20 q-4 12 -6 24 z" fill="#1c1917"/>
+  <circle cx="100" cy="140" r="34" fill="url(#gate15)"/>
+  <path d="M72 160 q-10 14 -18 22 l-4 30 h100 l-4 -30 q-8 -8 -18 -22 z" fill="rgba(28,25,23,.92)"/>
+  <path d="M72 160 q14 10 28 10 q14 0 28 -10" fill="none" stroke="#0c0a09" stroke-width="2"/>
+  <rect x="0" y="238" width="200" height="62" fill="rgba(12,10,9,.88)"/>
+  <rect y="238" width="200" height="3" fill="#fbbf24"/>
+  <text x="100" y="264" font-size="15" font-family="Georgia, serif" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing=".7">ТРИУМФАЛЬНАЯ АРКА</text>
+  <text x="100" y="285" font-size="11" font-family="Arial, sans-serif" fill="#fed7aa" text-anchor="middle">Эрих Мария Ремарк</text>
+</svg>
