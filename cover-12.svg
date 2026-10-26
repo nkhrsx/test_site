@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <defs>
+    <linearGradient id="bg12" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="head12a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbcfe8"/>
+      <stop offset="100%" stop-color="#db2777"/>
+    </linearGradient>
+    <linearGradient id="head12b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="300" fill="url(#bg12)"/>
+  <circle cx="100" cy="128" r="64" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.6" stroke-dasharray="4 6"/>
+  <path d="M100 78 a34 36 0 0 1 34 36 l-8 0 a26 28 0 0 0 -26 -28 z" fill="url(#head12a)"/>
+  <path d="M100 78 a34 36 0 0 0 -34 36 l8 0 a26 28 0 0 1 26 -28 z" fill="url(#head12a)" opacity=".85"/>
+  <circle cx="100" cy="132" r="27" fill="url(#head12b)"/>
+  <path d="M82 122 q6 -10 14 -12 q10 -2 12 6 q-6 6 -12 4 q-8 -2 -14 2 z" fill="#065f46"/>
+  <path d="M112 126 q4 -10 12 -10 q8 0 8 8 q-6 4 -12 2 q-6 -2 -8 0 z" fill="#065f46"/>
+  <path d="M86 142 q8 6 14 4 q6 -2 10 -8 q-6 4 -12 4 q-8 0 -12 0 z" fill="#065f46"/>
+  <path d="M84 132 q8 -6 16 -4 q8 2 6 8 q-8 -2 -14 0 q-6 0 -8 -4 z" fill="#065f46"/>
+  <rect x="40" y="244" width="120" height="3" rx="1.5" fill="#5eead4" opacity=".7"/>
+  <rect x="52" y="252" width="96" height="3" rx="1.5" fill="#5eead4" opacity=".5"/>
+  <rect x="64" y="260" width="72" height="3" rx="1.5" fill="#5eead4" opacity=".35"/>
+  <rect x="0" y="238" width="200" height="62" fill="rgba(2,44,34,.85)"/>
+  <rect y="238" width="200" height="3" fill="#34d399"/>
+  <text x="100" y="263" font-size="14" font-family="Georgia, serif" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing=".4">ДУМАЙ МЕДЛЕННО…</text>
+  <text x="100" y="281" font-size="14" font-family="Georgia, serif" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing=".4">РЕШАЙ БЫСТРО</text>
+  <text x="100" y="293" font-size="11" font-family="Arial, sans-serif" fill="#a7f3d0" text-anchor="middle">Даниэль Канеман</text>
+</svg>
