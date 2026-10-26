@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Книжный червь — книжный магазин в Санкт-Петербурге на Невском проспекте: классика, фэнтези, детективы, фантастика и нон-фикшн. Бонусная программа, доставка, 14 000 книг в наличии.">
+    <meta name="theme-color" content="#4f46e5">
+    <title>Книжный червь — книжный магазин в Санкт-Петербурге</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>🐛</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Книжный червь">
+    <meta property="og:title" content="Книжный червь — книжный магазин в Санкт-Петербурге">
+    <meta property="og:description" content="Классика, фэнтези, детективы, фантастика и нон-фикшн. Бонусная программа и доставка по всему городу.">
+
+    <!-- Микроданные Schema.org: книжный магазин -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BookStore",
+        "name": "Книжный червь",
+        "description": "Книжный магазин в Санкт-Петербурге: классика, фэнтези, детективы, фантастика и нон-фикшн.",
+        "priceRange": "₽₽",
+        "telephone": "+7 812 123-45-67",
+        "email": "hello@bookworm.spb.ru",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Невский пр., 47",
+            "addressLocality": "Санкт-Петербург",
+            "addressCountry": "RU"
+        },
+        "openingHours": "Mo-Su 10:00-21:00"
+    }
+    </script>
+
+    <!-- Шрифты: акцентный Playfair Display + основной Manrope (с системными фолбэками) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Метка «JS включён» для анимации появления карточек -->
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- Декоративные интерактивные плашки на фоне -->
+<div class="bg-decor" aria-hidden="true">
+    <span class="decor-chip">📖</span>
+    <span class="decor-chip">🐉</span>
+    <span class="decor-chip">🔍</span>
+    <span class="decor-chip">⚡</span>
+    <span class="decor-chip">🌌</span>
+    <span class="decor-chip">✨</span>
+</div>
+
+<header class="header" id="header">
+    <div class="app header-inner">
+        <a href="#top" class="logo" aria-label="Книжный червь — на главную">
+            <span aria-hidden="true">🐛</span> Книжный червь
+        </a>
+
+        <div class="search-box" role="search">
+            <label class="visually-hidden" for="searchInput">Поиск по каталогу</label>
+            <input class="search-input" type="search" id="searchInput"
+                   placeholder="Найти книгу или автора…" autocomplete="off">
+        </div>
+
+        <div class="header-actions">
+            <button class="btn btn-outline" id="accountBtn" type="button">
+                👤 <span class="btn-text">Кабинет</span>
+            </button>
+            <button class="btn btn-accent" id="cartBtn" type="button">
+                🛒 <span class="btn-text">Корзина</span>
+                <span class="cart-badge" id="cartBadge" hidden>0</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<nav class="nav-bar" aria-label="Фильтры каталога">
+    <div class="app nav-inner">
+        <div class="nav-group" role="group" aria-label="Фильтр по типу автора">
+            <span class="nav-label">Авторы:</span>
+            <button class="genre-btn active" type="button" data-author="all" aria-pressed="true">Все</button>
+            <button class="genre-btn" type="button" data-author="classic" aria-pressed="false">Классики</button>
+            <button class="genre-btn" type="button" data-author="modern" aria-pressed="false">Современные</button>
+            <button class="genre-btn" type="button" data-author="teen" aria-pressed="false">Подростковые</button>
+        </div>
+
+        <div class="nav-group" role="group" aria-label="Фильтр по жанру">
+            <span class="nav-label">Жанры:</span>
+            <button class="genre-btn active" type="button" data-genre="default" aria-pressed="true">Все книги</button>
+            <button class="genre-btn" type="button" data-genre="classic" aria-pressed="false">Классика</button>
+            <button class="genre-btn" type="button" data-genre="fantasy" aria-pressed="false">Фэнтези</button>
+            <button class="genre-btn" type="button" data-genre="detective" aria-pressed="false">Детектив</button>
+            <button class="genre-btn" type="button" data-genre="teen" aria-pressed="false">Подросткам</button>
+            <button class="genre-btn" type="button" data-genre="scifi" aria-pressed="false">Фантастика</button>
+            <button class="genre-btn" type="button" data-genre="nonfiction" aria-pressed="false">Нон-фикшн</button>
+        </div>
+
+        <p class="address">📍 Санкт-Петербург, Невский пр., 47</p>
+    </div>
+</nav>
+
+<main id="top">
+
+    <section class="hero">
+        <div class="app hero-content">
+            <p class="hero-eyebrow">Книжный магазин на Невском</p>
+            <h1>Книжный червь</h1>
+            <p class="hero-sub">Классика, фэнтези, детективы, фантастика и нон-фикшн — 14 000 книг в наличии и доставка по всему городу.</p>
+        </div>
+    </section>
+
+    <section class="catalog" aria-labelledby="catalogTitle">
+        <div class="app">
+            <div class="catalog-head">
+                <h2 id="catalogTitle">Каталог</h2>
+                <p class="found-count" id="foundCount" aria-live="polite"></p>
+            </div>
+            <div class="books-grid" id="booksGrid"></div>
+        </div>
+    </section>
+
+    <section class="profile-section" aria-label="Бонусы, контакты и обратная связь">
+        <div class="app profile-grid">
+            <div class="card">
+                <h3>👤 Личный кабинет</h3>
+                <div class="loyalty-card">
+                    <div class="user-name">
+                        <span>Анна Книголюбова</span>
+                        <span>✨</span>
+                    </div>
+                    <div class="points">1240 <small>бонусов</small></div>
+                    <div class="card-number">Карта лояльности · 7812 3456 7890</div>
+                </div>
+                <p class="card-note">Копите бонусы с каждой покупки и обменивайте на книги.</p>
+                <button class="btn btn-outline" id="accountOpenBtn" type="button">Подробнее о бонусах</button>
+            </div>
+
+            <div class="card">
+                <h3>📞 Контакты и обратная связь</h3>
+                <address class="contacts-info">
+                    <p><span aria-hidden="true">📌</span> Санкт-Петербург, Невский пр., 47</p>
+                    <p><span aria-hidden="true">📞</span> <a href="tel:+78121234567">+7 (812) 123-45-67</a></p>
+                    <p><span aria-hidden="true">✉️</span> <a href="mailto:hello@bookworm.spb.ru">hello@bookworm.spb.ru</a></p>
+                    <p><span aria-hidden="true">🕒</span> Ежедневно 10:00 – 21:00</p>
+                </address>
+
+                <form class="contact-form" id="feedbackForm">
+                    <div class="form-field">
+                        <label for="feedbackName">Ваше имя</label>
+                        <input type="text" id="feedbackName" name="name" placeholder="Иван" required autocomplete="name">
+                    </div>
+                    <div class="form-field">
+                        <label for="feedbackEmail">Email для ответа</label>
+                        <input type="email" id="feedbackEmail" name="email" placeholder="ivan@mail.ru" required autocomplete="email">
+                    </div>
+                    <div class="form-field">
+                        <label for="feedbackMessage">Сообщение</label>
+                        <textarea id="feedbackMessage" name="message" rows="3" placeholder="Ваш вопрос или пожелание"></textarea>
+                    </div>
+                    <button class="btn btn-accent" type="submit">Отправить сообщение</button>
+                    <p class="form-status" id="feedbackStatus" role="status" hidden></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="app footer-inner">
+        <p>© <span id="year">2026</span> Книжный червь · Санкт-Петербург</p>
+        <p>Мобильное приложение готовится к запуску 🐛</p>
+    </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Вернуться наверх">↑</button>
+
+<!-- Модальное окно: личный кабинет -->
+<dialog class="modal" id="accountDialog" aria-labelledby="accountDialogTitle">
+    <div class="modal-head">
+        <h2 id="accountDialogTitle">Личный кабинет</h2>
+        <button class="modal-close" type="button" data-close-dialog aria-label="Закрыть">✕</button>
+    </div>
+    <div class="modal-body">
+        <div class="loyalty-card loyalty-card--big">
+            <div class="user-name">
+                <span>Анна Книголюбова</span>
+                <span>🐛</span>
+            </div>
+            <div class="points">1240 <small>бонусов</small></div>
+            <div class="card-number">Карта лояльности · 7812 3456 7890</div>
+        </div>
+        <p>1 бонус = 1 рубль. Накопите 500 бонусов — получите скидку 10% на любую книгу из каталога.</p>
+    </div>
+</dialog>
+
+<!-- Модальное окно: корзина -->
+<dialog class="modal" id="cartDialog" aria-labelledby="cartDialogTitle">
+    <div class="modal-head">
+        <h2 id="cartDialogTitle">Корзина</h2>
+        <button class="modal-close" type="button" data-close-dialog aria-label="Закрыть">✕</button>
+    </div>
+    <div class="modal-body">
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-summary">
+            <p class="cart-total">Итого: <strong id="cartTotal">0 ₽</strong></p>
+            <button class="btn btn-accent" id="checkoutBtn" type="button">Оформить заказ</button>
+        </div>
+        <p class="form-status" id="cartStatus" role="status" hidden></p>
+    </div>
+</dialog>
+
+<script src="script.js" defer></script>
+</body>
+</html>

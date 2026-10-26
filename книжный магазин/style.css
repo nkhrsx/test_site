@@ -1,0 +1,1206 @@
+/* ============================================================
+   Книжный червь — стили сайта книжного магазина
+   Яркая палитра: цветные градиентные фоны, насыщенные акценты
+   ============================================================ */
+
+/* ---------- 1. Переменные и сброс ---------- */
+:root {
+    --surface-card:   rgba(255, 255, 255, .96);
+    --card-text:      #332b68;
+    --card-text-soft: #6d6688;
+    --card-border:    rgba(93, 74, 190, .22);
+    --shadow-sm:      0 2px 6px rgba(20, 12, 50, .14), 0 10px 28px rgba(20, 12, 50, .12);
+    --shadow-md:      0 14px 34px rgba(20, 12, 50, .22);
+    --shadow-lg:      0 26px 60px rgba(20, 12, 50, .35);
+    --radius:         20px;
+    --radius-sm:      12px;
+    --header-h:       72px;
+    --transition:     .3s cubic-bezier(.4, 0, .2, 1);
+    --font-display:   "Playfair Display", Georgia, "Times New Roman", serif;
+    --font-body:      "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+    /* Динамические переменные жанров (переопределяются в .genre-*) */
+    --genre-gradient: linear-gradient(160deg, #4f46e5 0%, #c026d3 100%);
+    --genre-accent:   #a3309c;
+    --genre-accent-strong: #7e1484;
+    --genre-text:     #ffffff;
+    --genre-text-secondary: rgba(255, 255, 255, .8);
+    --genre-border:   rgba(255, 255, 255, .3);
+    --genre-tint:     #ece8fd;
+    --genre-cover:    linear-gradient(145deg, #f0abfc, #a21caf);
+}
+
+/* Палитры жанров — яркие, насыщенные, без коричневых тонов */
+.genre-classic {
+    --genre-gradient: linear-gradient(160deg, #c2410c 0%, #f59e0b 130%);
+    --genre-accent:   #e86a10;
+    --genre-accent-strong: #b33c06;
+    --genre-text:     #ffffff;
+    --genre-text-secondary: rgba(255, 255, 255, .84);
+    --genre-border:   rgba(255, 255, 255, .35);
+    --genre-tint:     #fdefdf;
+    --genre-cover:    linear-gradient(145deg, #fdba74, #ea580c);
+}
+.genre-fantasy {
+    --genre-gradient: linear-gradient(160deg, #5b21b6 0%, #8b5cf6 140%);
+    --genre-accent:   #7c3aed;
+    --genre-accent-strong: #5b21b6;
+    --genre-text:     #ffffff;
+    --genre-text-secondary: rgba(255, 255, 255, .8);
+    --genre-border:   rgba(255, 255, 255, .32);
+    --genre-tint:     #ede7fd;
+    --genre-cover:    linear-gradient(145deg, #c4b5fd, #6d28d9);
+}
+.genre-detective {
+    --genre-gradient: linear-gradient(160deg, #0f766e 0%, #22d3ee 150%);
+    --genre-accent:   #0d9488;
+    --genre-accent-strong: #115e59;
+    --genre-text:     #ffffff;
+    --genre-text-secondary: rgba(255, 255, 255, .82);
+    --genre-border:   rgba(255, 255, 255, .35);
+    --genre-tint:     #dcf6f4;
+    --genre-cover:    linear-gradient(145deg, #5eead4, #0d9488);
+}
+.genre-teen {
+    --genre-gradient: linear-gradient(160deg, #be185d 0%, #f472b6 145%);
+    --genre-accent:   #ec4899;
+    --genre-accent-strong: #be185d;
+    --genre-text:     #ffffff;
+    --genre-text-secondary: rgba(255, 255, 255, .84);
+    --genre-border:   rgba(255, 255, 255, .34);
+    --genre-tint:     #fee7f1;
+    --genre-cover:    linear-gradient(145deg, #f9a8d4, #ec4899);
+}
+.genre-scifi {
+    --genre-gradient: linear-gradient(160deg, #1e3a8a 0%, #38bdf8 150%);
+    --genre-accent:   #0284c7;
+    --genre-accent-strong: #075985;
+    --genre-text:     #ffffff;
+    --genre-text-secondary: rgba(255, 255, 255, .82);
+    --genre-border:   rgba(255, 255, 255, .34);
+    --genre-tint:     #dceefe;
+    --genre-cover:    linear-gradient(145deg, #93c5fd, #1d4ed8);
+}
+.genre-nonfiction {
+    --genre-gradient: linear-gradient(160deg, #047857 0%, #34d399 150%);
+    --genre-accent:   #059669;
+    --genre-accent-strong: #065f46;
+    --genre-text:     #ffffff;
+    --genre-text-secondary: rgba(255, 255, 255, .84);
+    --genre-border:   rgba(255, 255, 255, .35);
+    --genre-tint:     #dcf7ec;
+    --genre-cover:    linear-gradient(145deg, #6ee7b7, #0d9488);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 12px);
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--genre-gradient);
+    background-attachment: fixed;
+    color: var(--genre-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background .5s ease, color .3s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+::selection {
+    background: var(--genre-accent);
+    color: #fff;
+}
+
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
+/* Утилита: скрыть визуально, но оставить для скринридеров */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- 2. Декоративные плашки на фоне ---------- */
+.bg-decor {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .5s ease;
+}
+
+.decor-chip {
+    position: absolute;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    line-height: 1;
+    opacity: .32;
+    cursor: pointer;
+    pointer-events: auto;
+    filter: drop-shadow(0 6px 14px rgba(20, 12, 50, .35));
+    animation: chip-float 9s ease-in-out infinite;
+    transition: transform .35s cubic-bezier(.2, .7, .3, 1.4), opacity .3s ease;
+}
+
+.decor-chip:hover {
+    opacity: .85;
+    transform: scale(1.3) rotate(14deg);
+}
+
+.decor-chip:nth-child(1) { top: 12%;  left: 4%;   animation-delay: 0s; }
+.decor-chip:nth-child(2) { top: 20%;  right: 5%;  animation-delay: 1.4s; }
+.decor-chip:nth-child(3) { bottom: 16%; left: 7%;  animation-delay: 2.6s; }
+.decor-chip:nth-child(4) { bottom: 30%; right: 11%; animation-delay: .8s; }
+.decor-chip:nth-child(5) { top: 52%;  left: 2%;   animation-delay: 3.4s; }
+.decor-chip:nth-child(6) { top: 38%;  right: 2%;  animation-delay: 2s; }
+
+@keyframes chip-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-14px) rotate(6deg); }
+}
+
+/* ---------- 3. Контейнер ---------- */
+.app {
+    width: min(1200px, 100% - 2.5rem);
+    margin-inline: auto;
+}
+
+/* ---------- 4. Шапка ---------- */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(24, 18, 52, .4);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: background var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.header.scrolled {
+    background: rgba(22, 16, 48, .68);
+    box-shadow: 0 8px 26px rgba(20, 12, 50, .25);
+    border-color: rgba(255, 255, 255, .14);
+}
+
+.header-inner {
+    min-height: var(--header-h);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: .6rem 0;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    letter-spacing: -.01em;
+    transition: opacity var(--transition), transform var(--transition);
+    white-space: nowrap;
+    text-shadow: 0 2px 10px rgba(20, 12, 50, .3);
+}
+
+.logo:hover {
+    opacity: .85;
+    transform: translateY(-1px);
+}
+
+.logo span {
+    font-size: 1.6rem;
+}
+
+/* Поиск */
+.search-box {
+    flex: 1;
+    min-width: 200px;
+    max-width: 420px;
+    margin-left: auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: .7rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .35);
+    background: rgba(255, 255, 255, .16);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: .92rem;
+    outline: none;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.search-input:focus {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, .24);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, .18);
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, .65);
+}
+
+.search-input::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+/* ---------- 5. Кнопки ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .45rem;
+    padding: .65rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    background: rgba(255, 255, 255, .15);
+    color: #ffffff;
+    font-size: .9rem;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(20, 12, 50, .18);
+    white-space: nowrap;
+    transition: background var(--transition), color var(--transition),
+                border-color var(--transition), transform var(--transition);
+}
+
+.btn:hover {
+    background: var(--genre-accent);
+    border-color: var(--genre-accent);
+    transform: translateY(-2px);
+}
+
+.btn-accent {
+    background: var(--genre-accent);
+    border-color: var(--genre-accent);
+}
+
+.btn-accent:hover {
+    filter: brightness(1.1);
+}
+
+.btn-outline {
+    background: transparent;
+}
+
+/* Кнопки внутри светлых карточек */
+.card .btn,
+.modal .btn {
+    background: var(--genre-accent);
+    border-color: var(--genre-accent);
+    color: #fff;
+}
+
+.card .btn:hover,
+.modal .btn:hover {
+    filter: brightness(1.1);
+}
+
+.card .btn-outline,
+.modal .btn-outline {
+    background: transparent;
+    border-color: var(--card-border);
+    color: var(--genre-accent-strong);
+    box-shadow: none;
+}
+
+.card .btn-outline:hover,
+.modal .btn-outline:hover {
+    background: var(--genre-accent);
+    border-color: var(--genre-accent);
+    color: #fff;
+}
+
+/* Бейдж корзины */
+.cart-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: #f43f5e;
+    color: #fff;
+    font-size: .72rem;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 2px 8px rgba(244, 63, 94, .5);
+}
+
+.cart-badge[hidden] {
+    display: none;
+}
+
+/* ---------- 6. Навигация: фильтры ---------- */
+.nav-bar {
+    border-bottom: 1px solid rgba(255, 255, 255, .18);
+    background: rgba(255, 255, 255, .08);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem 1.4rem;
+    padding: .9rem 0;
+}
+
+.nav-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .4rem;
+}
+
+.nav-label {
+    font-size: .74rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: rgba(255, 255, 255, .72);
+    font-weight: 700;
+    margin-right: .15rem;
+}
+
+.genre-btn {
+    padding: .42rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .38);
+    color: #ffffff;
+    font-size: .84rem;
+    font-weight: 600;
+    transition: all .2s ease;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.genre-btn:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, .3);
+    transform: translateY(-1px);
+}
+
+.genre-btn.active {
+    background: var(--genre-accent);
+    border-color: var(--genre-accent);
+    box-shadow: 0 6px 18px rgba(20, 12, 50, .3);
+}
+
+.address {
+    margin-left: auto;
+    font-size: .88rem;
+    color: var(--genre-text-secondary);
+    white-space: nowrap;
+}
+
+/* ---------- 7. Hero ---------- */
+.hero {
+    position: relative;
+    padding: 3.6rem 0 3.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .16);
+    background:
+        radial-gradient(circle at 12% 30%, rgba(255, 255, 255, .16), transparent 42%),
+        radial-gradient(circle at 88% 70%, rgba(255, 255, 255, .1), transparent 38%);
+}
+
+.hero-content {
+    max-width: 720px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    font-size: .78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: #ffffff;
+    background: rgba(255, 255, 255, .18);
+    border: 1px solid rgba(255, 255, 255, .35);
+    padding: .4rem .95rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5.2vw, 3.4rem);
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    margin-bottom: .9rem;
+    text-shadow: 0 4px 20px rgba(20, 12, 50, .35);
+}
+
+.hero-sub {
+    font-size: 1.05rem;
+    color: var(--genre-text-secondary);
+    max-width: 560px;
+}
+
+/* ---------- 8. Каталог ---------- */
+.catalog {
+    padding: 3rem 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.catalog-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.6rem;
+}
+
+.catalog-head h2 {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    color: #ffffff;
+    text-shadow: 0 3px 14px rgba(20, 12, 50, .3);
+}
+
+.found-count {
+    font-size: .9rem;
+    color: var(--genre-text-secondary);
+    font-weight: 600;
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .28);
+    padding: .3rem .85rem;
+    border-radius: 999px;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+/* ---------- 9. Карточки книг ---------- */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    background: var(--surface-card);
+    border: 1px solid rgba(255, 255, 255, .6);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.1rem 1.1rem;
+    color: var(--card-text);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition),
+                border-color var(--transition);
+}
+
+.book-card:hover {
+    transform: translateY(-6px) rotate(-.4deg);
+    box-shadow: var(--shadow-md);
+    border-color: var(--genre-accent);
+}
+
+.book-cover {
+    aspect-ratio: 2 / 3;
+    border-radius: 14px;
+    background: var(--genre-cover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.9rem;
+    margin-bottom: .8rem;
+    border: 1px solid rgba(255, 255, 255, .55);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .45), 0 8px 18px rgba(20, 12, 50, .18);
+    transition: transform var(--transition);
+}
+
+.book-card:hover .book-cover {
+    transform: scale(1.03);
+}
+
+.book-title {
+    font-weight: 700;
+    font-size: .98rem;
+    line-height: 1.35;
+    color: var(--card-text);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-author {
+    font-size: .84rem;
+    color: var(--card-text-soft);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    margin-top: auto;
+    padding-top: .8rem;
+}
+
+.book-price {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--genre-accent-strong);
+    white-space: nowrap;
+}
+
+.btn-add {
+    padding: .5rem .95rem;
+    border-radius: 999px;
+    background: var(--genre-accent);
+    border: 1px solid var(--genre-accent);
+    color: #fff;
+    font-size: .84rem;
+    font-weight: 700;
+    box-shadow: 0 6px 14px color-mix(in srgb, var(--genre-accent) 45%, transparent);
+    transition: filter var(--transition), transform var(--transition), box-shadow var(--transition);
+    white-space: nowrap;
+}
+
+.btn-add:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--genre-accent) 55%, transparent);
+}
+
+/* Пустое состояние каталога */
+.books-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3.5rem 1rem;
+    color: var(--card-text-soft);
+    background: var(--surface-card);
+    border: 2px dashed var(--genre-accent);
+    border-radius: var(--radius);
+}
+
+.books-empty .books-empty-emoji {
+    display: block;
+    font-size: 2.6rem;
+    margin-bottom: .8rem;
+}
+
+/* ---------- 10. Профиль, бонусы, контакты ---------- */
+.profile-section {
+    padding: 3.5rem 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--surface-card);
+    border: 1px solid rgba(255, 255, 255, .6);
+    border-radius: var(--radius);
+    padding: 1.6rem 1.6rem 1.8rem;
+    color: var(--card-text);
+    box-shadow: var(--shadow-sm);
+}
+
+.card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1.1rem;
+    color: var(--genre-accent-strong);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.card-note {
+    margin-top: 1rem;
+    font-size: .88rem;
+    color: var(--card-text-soft);
+}
+
+.card .btn {
+    margin-top: 1rem;
+}
+
+/* Карта лояльности */
+.loyalty-card {
+    background: linear-gradient(135deg, var(--genre-accent) 0%, var(--genre-accent-strong) 100%);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    box-shadow: 0 12px 26px color-mix(in srgb, var(--genre-accent) 40%, transparent);
+}
+
+.loyalty-card .user-name {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.loyalty-card .points {
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.loyalty-card .points small {
+    font-size: .95rem;
+    font-weight: 500;
+    opacity: .85;
+}
+
+.loyalty-card .card-number {
+    letter-spacing: .12em;
+    font-size: .9rem;
+    opacity: .92;
+}
+
+/* Контакты */
+.contacts-info {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    font-size: .95rem;
+}
+
+.contacts-info p {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    color: var(--card-text-soft);
+}
+
+.contacts-info p span:first-child {
+    color: var(--genre-accent-strong);
+    min-width: 1.4rem;
+}
+
+.contacts-info a {
+    color: var(--genre-accent-strong);
+    font-weight: 700;
+    border-bottom: 2px solid color-mix(in srgb, var(--genre-accent) 40%, transparent);
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.contacts-info a:hover {
+    color: var(--genre-accent);
+    border-color: var(--genre-accent);
+}
+
+/* Форма обратной связи */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: .95rem;
+    margin-top: 1.4rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+
+.form-field label {
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--card-text);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: .72rem 1rem;
+    border-radius: 18px;
+    border: 1px solid var(--card-border);
+    background: var(--genre-tint);
+    font-family: inherit;
+    font-size: .92rem;
+    color: var(--card-text);
+    outline: none;
+    resize: vertical;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: var(--genre-accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--genre-accent) 22%, transparent);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: var(--card-text-soft);
+    opacity: .7;
+}
+
+.form-status {
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--genre-accent-strong);
+    background: color-mix(in srgb, var(--genre-accent) 12%, #ffffff);
+    border: 1px solid color-mix(in srgb, var(--genre-accent) 35%, transparent);
+    border-radius: 14px;
+    padding: .8rem 1rem;
+}
+
+.form-status[hidden] {
+    display: none;
+}
+
+/* ---------- 11. Футер ---------- */
+.footer {
+    margin-top: 3rem;
+    padding: 1.8rem 0;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    color: var(--genre-text-secondary);
+    font-size: .88rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .8rem;
+}
+
+/* ---------- 12. Модальные окна ---------- */
+.modal {
+    border: none;
+    padding: 0;
+    width: min(560px, 94vw);
+    max-height: 88vh;
+    border-radius: 24px;
+    background: var(--surface-card);
+    color: var(--card-text);
+    box-shadow: var(--shadow-lg);
+}
+
+.modal::backdrop {
+    background: rgba(18, 12, 44, .55);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.modal-head h2 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--genre-accent-strong);
+}
+
+.modal-close {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--card-text-soft);
+    border: 1px solid var(--card-border);
+    transition: all .2s ease;
+}
+
+.modal-close:hover {
+    background: var(--genre-accent);
+    border-color: var(--genre-accent);
+    color: #fff;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: calc(88vh - 72px);
+    color: var(--card-text-soft);
+}
+
+.modal-body p + p {
+    margin-top: .6rem;
+}
+
+/* ---------- 13. Корзина ---------- */
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--card-text-soft);
+    font-size: .95rem;
+}
+
+.cart-empty::before {
+    content: "📚";
+    display: block;
+    font-size: 2.4rem;
+    margin-bottom: .7rem;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: .9rem;
+    align-items: center;
+    padding: .8rem;
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    background: var(--genre-tint);
+}
+
+.cart-cover {
+    width: 48px;
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    border: 1px solid rgba(255, 255, 255, .55);
+    box-shadow: 0 4px 10px rgba(20, 12, 50, .15);
+}
+
+.cart-title {
+    font-weight: 700;
+    font-size: .94rem;
+    line-height: 1.3;
+    color: var(--card-text);
+}
+
+.cart-author {
+    font-size: .8rem;
+    color: var(--card-text-soft);
+}
+
+.cart-price {
+    font-weight: 700;
+    font-size: .88rem;
+    color: var(--genre-accent-strong);
+    margin-top: .2rem;
+}
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.cart-qty {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+.qty-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--card-border);
+    background: #ffffff;
+    color: var(--card-text);
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+}
+
+.qty-btn:hover {
+    background: var(--genre-accent);
+    border-color: var(--genre-accent);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.qty-num {
+    min-width: 1.6rem;
+    text-align: center;
+    font-weight: 700;
+    color: var(--card-text);
+}
+
+.cart-remove {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: var(--card-text-soft);
+    font-size: .85rem;
+    border: 1px solid var(--card-border);
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+}
+
+.cart-remove:hover {
+    background: #f43f5e;
+    border-color: #f43f5e;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.cart-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--card-border);
+}
+
+.cart-total {
+    font-size: 1rem;
+    color: var(--card-text-soft);
+}
+
+.cart-total strong {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    color: var(--genre-accent-strong);
+}
+
+.loyalty-card--big .points {
+    font-size: 2.6rem;
+}
+
+/* ---------- 14. Кнопка «Наверх» ---------- */
+.to-top {
+    position: fixed;
+    right: 1.4rem;
+    bottom: 1.4rem;
+    z-index: 90;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    color: #fff;
+    background: var(--genre-accent);
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--genre-accent) 50%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+    transition: opacity var(--transition), transform var(--transition), filter var(--transition);
+}
+
+.to-top:hover {
+    filter: brightness(1.1);
+}
+
+.to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* ---------- 15. Анимация появления ---------- */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity .6s ease var(--d, 0s),
+        transform .6s cubic-bezier(.2, .7, .3, 1) var(--d, 0s);
+}
+
+.js .reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ---------- 16. Доступность ---------- */
+:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+.card :focus-visible,
+.modal :focus-visible {
+    outline-color: var(--genre-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .decor-chip {
+        animation: none;
+    }
+}
+
+/* ---------- 17. Адаптив ---------- */
+@media (max-width: 860px) {
+    .header-inner {
+        gap: .7rem;
+    }
+
+    .search-box {
+        order: 3;
+        max-width: none;
+        flex-basis: 100%;
+        margin-left: 0;
+    }
+
+    .nav-inner {
+        gap: .5rem 1rem;
+    }
+
+    .address {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .decor-chip:nth-child(3),
+    .decor-chip:nth-child(4) {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .hero {
+        padding: 2.4rem 0;
+    }
+
+    .btn-text {
+        display: none;
+    }
+
+    .btn {
+        padding: .65rem .95rem;
+    }
+
+    .book-cover {
+        font-size: 2.1rem;
+    }
+
+    .to-top {
+        right: 1rem;
+        bottom: 1rem;
+        width: 48px;
+        height: 48px;
+    }
+
+    .cart-item {
+        grid-template-columns: auto 1fr;
+    }
+
+    .cart-controls {
+        grid-column: 1 / -1;
+        justify-content: flex-end;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: .4rem;
+    }
+
+    .decor-chip:nth-child(5),
+    .decor-chip:nth-child(6) {
+        display: none;
+    }
+}
